@@ -30,9 +30,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2dffe52ecf27772e601905b7522cb4ef790d2cc203488bbd0e2fe85fcb74566d"
 
 [[package]]
+name = "openbsd"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ed78bab02b5f8f13811202cbebf6aed903c07034fd4f1224f81d29546c012748"
+
+[[package]]
 name = "openbsd_nif"
 version = "0.1.0"
 dependencies = [
+ "openbsd",
  "rustler",
 ]
 
