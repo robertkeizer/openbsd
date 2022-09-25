@@ -11,38 +11,31 @@ mod atoms {
   }
 }
 
-#[rustler::nif]
-fn pledge_promises(s: String) -> Result<Atom, Atom> {
-
-  return match openbsd::pledge::pledge_promises(s) {
+fn to_nif_result(result: Result<(), openbsd::pledge::Error>) -> Result<Atom, Atom> {
+ 
+  return match result {
     Err(EFAULT) => Err(atoms::efault()),
     Err(EINVAL) => Err(atoms::einval()),
     Err(EPERM) => Err(atoms::eperm()),
     Err(_) => Err(atoms::error()),
     Ok(()) => Ok(atoms::ok())
   };
+   
+}
+
+#[rustler::nif]
+fn pledge_promises(s: String) -> Result<Atom, Atom> {
+  return to_nif_result( openbsd::pledge::pledge_promises(s) );
 }
 
 #[rustler::nif]
 fn pledge_execpromises(s: String) -> Result<Atom, Atom> {
-  return match openbsd::pledge::pledge_execpromises(s) {
-    Err(EFAULT) => Err(atoms::efault()),
-    Err(EINVAL) => Err(atoms::einval()),
-    Err(EPERM) => Err(atoms::eperm()),
-    Err(_) => Err(atoms::error()),
-    Ok(()) => Ok(atoms::ok())
-  }
+  return to_nif_result( openbsd::pledge::pledge_execpromises(s) );
 }
 
 #[rustler::nif]
 fn pledge(promises: String, exec_promises: String) -> Result<Atom, Atom> {
-  return match openbsd::pledge::pledge(promises, exec_promises) {
-    Err(EFAULT) => Err(atoms::efault()),
-    Err(EINVAL) => Err(atoms::einval()),
-    Err(EPERM) => Err(atoms::eperm()),
-    Err(_) => Err(atoms::error()),
-    Ok(()) => Ok(atoms::ok())
-  }
+  return to_nif_result( openbsd::pledge::pledge(promises, exec_promises) );
 }
 
 
