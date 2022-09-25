@@ -1,6 +1,6 @@
 # openbsd
 
-This is an [elixir](https://elixir-lang.org/) [NIF](https://www.erlang.org/doc/tutorial/nif.html) that exposes [pledge(2)](https://man.openbsd.org/pledge.2) functionality (by way of [rustler](https://github.com/rusterlium/rustler) and [the openbsd crate](https://crates.io/crates/openbsd)) when running elixir on [OpenBSD](https://www.openbsd.org/).
+This package exposes [pledge(2)](https://man.openbsd.org/pledge.2) functionality.
 
 ## Usage
 
@@ -29,3 +29,6 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/openbsd](https://hexdocs.pm/openbsd).
 
+## Inner Workings
+
+This interface makes use of [rustler](https://github.com/rusterlium/rustler) and [the openbsd crate](https://crates.io/crates/openbsd)).
