@@ -10,7 +10,9 @@ defmodule OpenbsdTest.NIF do
 
   test "pledge_promises" do
     IO.puts( "Testing.." )
-    result = NIF.pledge_promises("")
+    #result = NIF.pledge_promises("stdio rpath wpath cpath vminfo ps error")
+    #result = NIF.pledge_promises("stdio")
+    result = NIF.pledge_promises("stasdfio")
 
     IO.puts( "I have result!" )
 
