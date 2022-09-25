@@ -7,7 +7,15 @@ defmodule Openbsd.MixProject do
       version: "0.1.0",
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+
+      # Docs
+      name: "OpenBSD",
+      source_url: "https://github.com/robertkeizer/openbsd",
+      docs: [
+        main: "Openbsd",
+        extras: ["README.md"]
+      ]
     ]
   end
 
@@ -20,7 +28,8 @@ defmodule Openbsd.MixProject do
 
   defp deps do
     [
-      {:rustler, "~> 0.26.0"}
+      {:rustler, "~> 0.26.0"},
+      {:ex_doc, "~> 0.28.5", only: :dev, runtime: false}
     ]
   end
 end

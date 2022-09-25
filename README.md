@@ -1,6 +1,6 @@
 # openbsd
 
-This package exposes [pledge(2)](https://man.openbsd.org/pledge.2) functionality.
+This package exposes currently exposes [pledge(2)](https://man.openbsd.org/pledge.2) functionality.
 
 ## Usage
 
@@ -31,4 +31,4 @@ be found at [https://hexdocs.pm/openbsd](https://hexdocs.pm/openbsd).
 
 ## Inner Workings
 
-This interface makes use of [rustler](https://github.com/rusterlium/rustler) and [the openbsd crate](https://crates.io/crates/openbsd)).
+This interface makes use of [rustler](https://github.com/rusterlium/rustler) and [the openbsd crate](https://crates.io/crates/openbsd).
