@@ -5,7 +5,10 @@ use rustler::Atom;
 mod atoms {
   rustler::atoms! {
     ok,
-    error
+    error,
+    efault,
+    einval,
+    eperm
   }
 }
 
@@ -16,17 +19,14 @@ fn add(a: i64, b: i64) -> i64 {
 
 #[rustler::nif]
 fn pledge_promises(s: String) -> Result<Atom, Atom> {
-  let result = match openbsd::pledge::pledge_promises(s) {
-    Ok(()) => Ok(atoms::ok()),
-    Err(foo) => {
-      dbg!(foo);
-      return Err(atoms::error());
-    }
+
+  return match openbsd::pledge::pledge_promises(s) {
+    Err(openbsd::pledge::Error::EFAULT) => Err(atoms::efault()),
+    Err(openbsd::pledge::Error::EINVAL) => Err(atoms::einval()),
+    Err(openbsd::pledge::Error::EPERM) => Err(atoms::eperm()),
+    Err(_) => Err(atoms::error()),
+    Ok(()) => Ok(atoms::ok())
   };
-
-  dbg!(result);
-
-  return result;
 }
 
 

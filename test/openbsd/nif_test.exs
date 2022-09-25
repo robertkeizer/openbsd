@@ -8,16 +8,13 @@ defmodule OpenbsdTest.NIF do
     assert 4 == NIF.add(1, 3)
   end
 
-  test "pledge_promises" do
-    IO.puts( "Testing.." )
-    #result = NIF.pledge_promises("stdio rpath wpath cpath vminfo ps error")
-    #result = NIF.pledge_promises("stdio")
-    result = NIF.pledge_promises("stasdfio")
+  describe "pledge_promises" do
+    test "Returns {:error, :einval} for invalid input" do
+      assert {:error, :einval} = NIF.pledge_promises("invalid_input")
+    end
 
-    IO.puts( "I have result!" )
-
-    IO.inspect(result)
-
-    true
+    test "Returns {:ok, :ok} for valid input" do
+      assert {:ok, :ok} = NIF.pledge_promises("stdio rpath wpath cpath vminfo ps error")
+    end
   end
 end
