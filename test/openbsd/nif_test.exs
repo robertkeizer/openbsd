@@ -4,10 +4,6 @@ defmodule OpenbsdTest.NIF do
 
   alias Openbsd.NIF
 
-  test "add" do
-    assert 4 == NIF.add(1, 3)
-  end
-
   describe "pledge_promises/1" do
     test "Returns {:error, :einval} for invalid input" do
       assert {:error, :einval} = NIF.pledge_promises("invalid_input")

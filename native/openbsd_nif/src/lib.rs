@@ -1,8 +1,5 @@
 use rustler::Atom;
-
 use openbsd::pledge::Error::{EFAULT, EINVAL, EPERM};
-
-//#use openbsd::pledge::{pledge, pledge_promises, pledge_execpromises};
 
 mod atoms {
   rustler::atoms! {
@@ -12,11 +9,6 @@ mod atoms {
     einval,
     eperm
   }
-}
-
-#[rustler::nif]
-fn add(a: i64, b: i64) -> i64 {
-    a + b
 }
 
 #[rustler::nif]
@@ -54,4 +46,4 @@ fn pledge(promises: String, exec_promises: String) -> Result<Atom, Atom> {
 }
 
 
-rustler::init!("Elixir.Openbsd.NIF", [add, pledge_promises, pledge_execpromises, pledge]);
+rustler::init!("Elixir.Openbsd.NIF", [pledge_promises, pledge_execpromises, pledge]);
