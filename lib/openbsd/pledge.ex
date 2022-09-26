@@ -1,6 +1,6 @@
 defmodule Openbsd.Pledge do
   @moduledoc """
-  This module deals with pledge(2). 
+  This module provides an elixir interface to the [pledge(2)](https://man.openbsd.org/pledge) system call.
   """
   @moduledoc since: "0.1.0"
 

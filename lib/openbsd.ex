@@ -1,18 +1,7 @@
 defmodule Openbsd do
   @moduledoc """
-  Documentation for `Openbsd`.
+  The `Openbsd` package provides [OpenBSD](https://www.openbsd.org/) specific functionality.
+
+  It is **not** an official project or associated with [OpenBSD Foundation](https://www.openbsdfoundation.org/).
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Openbsd.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end
