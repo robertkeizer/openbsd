@@ -1,8 +1,8 @@
 defmodule Openbsd.Pledge do
   @moduledoc """
-  This module provides an elixir interface to the [pledge(2)](https://man.openbsd.org/pledge) system call.
+  This module provides an interface to the [pledge(2)](https://man.openbsd.org/pledge) system call.
 
-  [pledge(2)](https://man.openbsd.org/pledge) restricts operations the current operating system process (BEAM) can perform. It is possible to crash the BEAM by restricting access to required resources.
+  [pledge(2)](https://man.openbsd.org/pledge) restricts operations the current operating system process (the BEAM) can perform. It is possible to crash the BEAM by restricting access to required resources.
   """
   @moduledoc since: "0.1.0"
 
@@ -33,14 +33,14 @@ defmodule Openbsd.Pledge do
   end
 
   @doc """
-  Calls pledge with specific promises.
+  Calls pledge with specific `promises`.
   """
   def pledge_promises(promises) do
     to_ex(NIF.pledge_promises(promises))
   end
 
   @doc """
-  Calls pledge with specific execpromises.
+  Calls pledge with specific `execpromises`.
   """
   def pledge_execpromises(execpromises) do
     to_ex(NIF.pledge_execpromises(execpromises))
