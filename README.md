@@ -1,21 +1,15 @@
-# openbsd
+# OpenBSD
 
-This package exposes currently exposes [pledge(2)](https://man.openbsd.org/pledge.2) functionality.
+This package allows exposes functionality specific to [OpenBSD](https://www.openbsd.org/).
 
-## Usage
+It is ***not*** an official project of the [OpenBSD Foundation](https://www.openbsdfoundation.org/).
 
- * `pledge_promises/1`
- * `pledge_execpromises/1`
- * `pledge/2`
-
-```elixir
-```
-
+The following system calls are supported:
+ - [pledge(2)](https://man.openbsd.org/pledge.2) via `Openbsd.Pledge`
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `openbsd` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `openbsd` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -25,10 +19,6 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/openbsd](https://hexdocs.pm/openbsd).
+## Internals
 
-## Inner Workings
-
-This interface makes use of [rustler](https://github.com/rusterlium/rustler) and [the openbsd crate](https://crates.io/crates/openbsd).
+The package makes use of [rustler](https://github.com/rusterlium/rustler) and the [openbsd](https://crates.io/crates/openbsd) crate.

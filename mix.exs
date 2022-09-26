@@ -13,7 +13,7 @@ defmodule Openbsd.MixProject do
       name: "OpenBSD",
       source_url: "https://github.com/robertkeizer/openbsd",
       docs: [
-        main: "Openbsd",
+        main: "readme",
         extras: ["README.md"]
       ]
     ]
