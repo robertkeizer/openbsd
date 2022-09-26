@@ -28,6 +28,7 @@ defmodule Openbsd.Pledge do
   {:error, :einval} = pledge("invalid_promise", "exec")
   ```
   """
+  @spec pledge(String.t(), String.t()) :: any
   def pledge(promises, execpromises) do
     to_ex(NIF.pledge(promises, execpromises))
   end
